@@ -16,7 +16,7 @@ export function List() {
   }, [loadCharacters]);
 
   if (charactersState === 'loading') {
-    return <p>Loading</p>;
+    return <p className="loading">Loading</p>;
   }
 
   if (charactersState === 'error') {
