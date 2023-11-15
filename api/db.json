@@ -34,7 +34,7 @@
     },
     {
       "id": 4,
-      "isAlive": true,
+      "isAlive": false,
       "message": "I dunno know why, but I believe I am gonna die soon",
       "name": "Tyrion",
       "family": "Lannister",
@@ -52,7 +52,7 @@
     },
     {
       "id": 5,
-      "isAlive": true,
+      "isAlive": false,
       "message": "I am a real loser",
       "name": "Bronn",
       "family": "Nieve",
