@@ -17,7 +17,7 @@ export function useCharacters() {
     try {
       dispatch(loadCharactersThunk(repo));
     } catch (error) {
-      console.log((error as Error).message);
+      // console.log((error as Error).message);
     }
   }, [repo]);
 
@@ -28,7 +28,7 @@ export function useCharacters() {
     try {
       dispatch(updateCharactersThunk({ id, repo, updatedTask: character }));
     } catch (error) {
-      console.log((error as Error).message);
+      // console.log((error as Error).message);
     }
   };
 
