@@ -6,7 +6,7 @@ import { RootState } from '../../store/store';
 import { useSelector } from 'react-redux';
 
 export function List() {
-  const { characters, charactersState } = useSelector(
+  const { characters } = useSelector(
     (state: RootState) => state.charactersState
   );
   const { loadCharacters } = useCharacters();
@@ -15,13 +15,13 @@ export function List() {
     loadCharacters();
   }, [loadCharacters]);
 
-  if (charactersState === 'loading') {
-    return <p className="loading">Loading</p>;
-  }
+  // if (charactersState === 'loading') {
+  //   return <p className="loading">Loading</p>;
+  // }
 
-  if (charactersState === 'error') {
-    return <p>Error lading tasks</p>;
-  }
+  // if (charactersState === 'error') {
+  //   return <p>Error lading tasks</p>;
+  // }
 
   return (
     <ul className="characters-list row list-unstyled">
