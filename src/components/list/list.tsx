@@ -15,14 +15,6 @@ export function List() {
     loadCharacters();
   }, [loadCharacters]);
 
-  // if (charactersState === 'loading') {
-  //   return <p className="loading">Loading</p>;
-  // }
-
-  // if (charactersState === 'error') {
-  //   return <p>Error loading tasks</p>;
-  // }
-
   return (
     <ul className="characters-list row list-unstyled">
       {characters.map((item) => (

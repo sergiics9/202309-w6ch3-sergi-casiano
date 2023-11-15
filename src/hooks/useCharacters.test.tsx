@@ -13,7 +13,7 @@ jest.mock('react', () => ({
   useReducer: jest.fn().mockReturnValue([{}, jest.fn()]),
 }));
 
-describe('Given the useTask hook', () => {
+describe('Given the useCharacters hook', () => {
   ApiRepo.prototype.getCharacters = jest
     .fn()
     .mockResolvedValue([{ id: 34 } as unknown as AnyCharacter]);

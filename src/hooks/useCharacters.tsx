@@ -26,7 +26,9 @@ export function useCharacters() {
     character: Partial<AnyCharacter>
   ) => {
     try {
-      dispatch(updateCharactersThunk({ id, repo, updatedTask: character }));
+      dispatch(
+        updateCharactersThunk({ id, repo, updateCharacters: character })
+      );
     } catch (error) {
       // console.log((error as Error).message);
     }

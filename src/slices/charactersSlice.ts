@@ -48,24 +48,6 @@ const charactersSlice = createSlice({
           return state;
         }
       );
-    // builder.addCase(
-    //   createTaskThunk.fulfilled,
-    //   (state: CharactersState, { payload }: PayloadAction<Task>) => {
-    //     state.tasks.push(payload);
-    //     return state;
-    //   }
-    // ),
-
-    // builder.addCase(
-    //   deleteTaskThunk.fulfilled,
-    //   (state: CharactersState, { payload }: PayloadAction<Task['id']>) => {
-    //     state.tasks.splice(
-    //       state.tasks.findIndex((item) => item.id === payload),
-    //       1
-    //     );
-    //     return state;
-    //   }
-    // );
   },
 });
 
