@@ -1,19 +1,43 @@
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { List } from './list';
 import { Provider } from 'react-redux';
-import { store } from '../../store/store';
+import { configureStore } from '@reduxjs/toolkit';
+import charactersReducer from '../../slices/charactersSlice';
+import { AnyCharacter } from '../../models/character';
+import { useCharacters } from '../../hooks/useCharacters';
 
-describe('Given...', () => {
-  describe('When we instantiate', () => {
+jest.mock('../../hooks/useCharacters');
+
+describe('Given List component ', () => {
+  describe('When charactersState is "idle"', () => {
+    const mockStore = configureStore({
+      reducer: {
+        charactersState: charactersReducer,
+      },
+      preloadedState: {
+        charactersState: {
+          characters: [{ id: 1 } as AnyCharacter],
+          charactersState: 'idle',
+        },
+      },
+    });
+
+    const loadCharacters = jest.fn();
+    (useCharacters as jest.Mock).mockReturnValue({
+      loadCharacters,
+    });
+
     render(
-      <Provider store={store}>
-        <List></List>
+      <Provider store={mockStore}>
+        <List />
       </Provider>
     );
-    test('It should be...', () => {
-      const element = screen.getByRole('list');
-      expect(element).toBeInTheDocument();
+
+    test('Then it should be in the document', () => {
+      const listElement = screen.getAllByRole('list')[0];
+      expect(listElement).toBeInTheDocument();
+      expect(loadCharacters).toHaveBeenCalled();
     });
   });
 });

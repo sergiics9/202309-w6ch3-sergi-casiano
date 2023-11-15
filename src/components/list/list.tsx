@@ -20,7 +20,7 @@ export function List() {
   // }
 
   // if (charactersState === 'error') {
-  //   return <p>Error lading tasks</p>;
+  //   return <p>Error loading tasks</p>;
   // }
 
   return (
