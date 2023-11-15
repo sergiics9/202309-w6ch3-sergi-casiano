@@ -24,6 +24,8 @@ export class ApiRepo {
         'Content-Type': 'application/json',
       },
     });
+    if (!response.ok)
+      throw new Error(response.status + ' ' + response.statusText);
     return response.json();
   }
 }

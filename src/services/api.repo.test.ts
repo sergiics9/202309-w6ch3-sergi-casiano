@@ -47,12 +47,22 @@ describe('Given ApiRepo class', () => {
       beforeEach(() => {
         global.fetch = jest.fn().mockResolvedValueOnce({
           ok: false,
+          status: 404,
+          statusText: 'Not Found',
         });
       });
 
       test('Then method getCharacters should not be used', async () => {
         const repo = new ApiRepo();
         expect(repo.getCharacters()).rejects.toThrow();
+      });
+      test('Handles error in getCharacters', async () => {
+        const mockId = 1;
+        const characterData = { id: 1 } as unknown as Partial<AnyCharacter>;
+        const repo = new ApiRepo();
+        await expect(
+          repo.updateCharacter(mockId, characterData)
+        ).rejects.toThrow('404 Not Found');
       });
     });
   });
